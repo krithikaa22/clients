@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './components/AppNavBar';
+import Movies from './components/Movies';
+import Add from './components/AddMovie';
+import View from './components/VIewMovie';
+import Search from './components/SearchMovies';
+import {Provider} from 'react-redux';
+import store from './Store'
+import Edit from './components/EditMovie';
+import Routes from './routes/routes'
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store = {store}>
+      <div className="App">
+        <Navbar></Navbar>
+        <Routes></Routes>
+      </div>
+      </Provider>
+  )
 }
 
 export default App;
